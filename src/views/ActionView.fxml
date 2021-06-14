@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="108.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ActionController">
+   <TextField fx:id="textField" layoutX="168.0" layoutY="13.0" prefHeight="26.0" prefWidth="400.0" />
+   <Button layoutX="493.0" layoutY="54.0" mnemonicParsing="false" onAction="#action" text="Сохранить" />
+   <Label fx:id="label" layoutX="14.0" layoutY="18.0" text="Наименование: " />
+</AnchorPane>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0">
+        <left>
+            <TabPane prefHeight="900.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                <Tab text="Инструменты">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <Text fontSmoothingType="LCD" layoutX="10.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Учебные материалы">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Text>
+                        <Button fx:id="download" layoutX="20.0" layoutY="40.0" mnemonicParsing="false" onAction="#downloadMaterialAction" text="Сохранить ⬇" />
+                        <Button fx:id="open" layoutX="20.0" layoutY="80.0" mnemonicParsing="false" onAction="#openMaterialAction" text="Открыть 📁" />
+                        <Button fx:id="update" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" onAction="#updateMaterialAction" text="Обновить 🔄" />
+                        <Button fx:id="upload" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#uploadMaterialAction" text="Загрузить ⬆" />
+                        <Button fx:id="rename" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#renameMaterialAction" text="Переименовать 🖍" />
+                        <Button fx:id="delete" layoutX="20.0" layoutY="240.0" mnemonicParsing="false" onAction="#deleteMaterialAction" text="Удалить ❌" />
+                        <Text fontSmoothingType="LCD" layoutX="10.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Заметки">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Text>
+                        <Button layoutX="20.0" layoutY="305.0" mnemonicParsing="false" onAction="#downloadNoteAction" text="Сохранить ⬇" />
+                        <Button layoutX="20.0" layoutY="345.0" mnemonicParsing="false" onAction="#clearNoteAction" text="Очистить ❌" />
+                        <Text fontSmoothingType="LCD" layoutX="10.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тесты">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Text>
+                        <Button fx:id="production" layoutX="20.0" layoutY="410.0" mnemonicParsing="false" onAction="#testProduction" text="Просмотр 📁" />
+                        <Button fx:id="development" layoutX="20.0" layoutY="450.0" mnemonicParsing="false" onAction="#testDevelopment" text="Редактор 🖍" />
+                    </AnchorPane>
+                </Tab>
+            </TabPane>
+        </left>
+        <center>
+            <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                <Tab fx:id="text_tab" text="Текстовые материалы">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <ListView fx:id="textList" layoutX="10.0" layoutY="10.0" prefHeight="854.0" prefWidth="776.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                    </AnchorPane>
+                </Tab>
+                <Tab fx:id="video_tab" text="Видео материалы">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <ListView fx:id="videoList" prefHeight="854.0" prefWidth="776.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                    </AnchorPane>
+                </Tab>
+                <Tab fx:id="audio_tab" text="Аудио материалы">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <ListView fx:id="audioList" prefHeight="854.0" prefWidth="776.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                    </AnchorPane>
+                </Tab>
+                <Tab fx:id="test_tab" text="Тесты по учебным материалам">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <ListView fx:id="testList" prefHeight="854.0" prefWidth="776.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <VBox fx:id="testDevelopment" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                            <ButtonBar prefHeight="30.0" prefWidth="979.0">
+                                <buttons>
+                                    <Label prefHeight="18.0" prefWidth="308.0" text="Тесты:" />
+                                    <Button mnemonicParsing="false" onAction="#testAddAction" text="Добавить" />
+                                    <Button mnemonicParsing="false" onAction="#testRenameAction" text="Переименовать" />
+                                    <Button mnemonicParsing="false" onAction="#testDeleteAction" text="Удалить" />
+                                </buttons>
+                            </ButtonBar>
+                            <ListView fx:id="testListDev" prefHeight="250.0" />
+                            <ButtonBar prefHeight="30.0" prefWidth="975.0">
+                                <buttons>
+                                    <Label prefHeight="18.0" prefWidth="343.0" text="Вопросы:" />
+                                    <Button mnemonicParsing="false" onAction="#questionAddAction" text="Добавить" />
+                                    <Button layoutX="117.0" layoutY="12.0" mnemonicParsing="false" onAction="#questionRenameAction" text="Переименовать" />
+                                    <Button layoutX="202.0" layoutY="12.0" mnemonicParsing="false" onAction="#questionDeleteAction" text="Удалить" />
+                                </buttons>
+                            </ButtonBar>
+                            <ListView fx:id="questionList" prefHeight="250.0" />
+                            <ButtonBar prefHeight="30.0" prefWidth="927.0">
+                                <buttons>
+                                    <Label prefHeight="18.0" prefWidth="211.0" text="Ответы:" />
+                                    <Button mnemonicParsing="false" onAction="#answerAddAction" text="Добавить" />
+                                    <Button layoutX="117.0" layoutY="12.0" mnemonicParsing="false" onAction="#answerRenameAction" text="Переименовать" />
+                                    <Button layoutX="260.0" layoutY="12.0" mnemonicParsing="false" onAction="#answerRightWrongAction" text="Верный/Неверный" />
+                                    <Button layoutX="260.0" layoutY="12.0" mnemonicParsing="false" onAction="#answerDeleteAction" text="Удалить" />
+                                </buttons>
+                            </ButtonBar>
+                            <TableView fx:id="answerTable" prefHeight="260.0" prefWidth="980.0">
+                                <columns>
+                                    <TableColumn fx:id="answer" minWidth="0.0" prefWidth="811.4000701904297" text="Ответ" />
+                                    <TableColumn fx:id="isRight" minWidth="0.0" prefWidth="142.79998779296875" text="Верный?" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </AnchorPane>
+                </Tab>
+            </TabPane>
+        </center>
+        <right>
+            <TabPane prefHeight="900.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+                <Tab text="Написать заметку">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <VBox AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" BorderPane.alignment="CENTER">
+                            <TextArea fx:id="note" prefHeight="900" />
+                        </VBox>
+                    </AnchorPane>
+                </Tab>
+            </TabPane>
+        </right>
+    </BorderPane>
+</GridPane>
